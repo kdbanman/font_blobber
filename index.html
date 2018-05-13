@@ -3,19 +3,21 @@
   <body>
 
     <div>
-      <textarea class="trainingTextRaw" rows="8" cols="80">Paste the training text you would like in here!</textarea>
+      <textarea class="rawTrainingText" rows="8" cols="80">Paste the training text you would like in here!</textarea>
     </div>
 
     <div>
       <button class="loadSampleTrainingText" onclick="loadSampleTrainingText()">Load Sample</button>
     </div>
-
+    
     <div>
-      <canvas class="trainingTextCanvas" width="1000" height="100" style="border:1px solid #d3d3d3;">
+      <canvas class="trainingTextCanvas" width="1000" height="100" style="border:1px solid #d3d3d3; image-rendering: optimizeSpeed; image-rendering: -moz-crisp-edges; image-rendering: -webkit-optimize-contrast; image-rendering: -o-crisp-edges; image-rendering: pixelated; -ms-interpolation-mode: nearest-neighbor;">
         Your browser does not support the canvas element.
       </canvas>
     </div>
 
+    <script type="text/javascript" src="src/components/rawTrainingText.js"></script>
+    <script type="text/javascript" src="src/components/textCanvas.js"></script>
     <script type="text/javascript" src="src/main.js"></script>
 
   </body>
