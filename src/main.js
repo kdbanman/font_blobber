@@ -11,13 +11,37 @@ function loadSampleTrainingText() {
   textRequest.send();
 }
 
+var PIXEL_RATIO = (function () {
+  var ctx = document.createElement("canvas").getContext("2d"),
+      dpr = window.devicePixelRatio || 1,
+      bsr = ctx.webkitBackingStorePixelRatio ||
+            ctx.mozBackingStorePixelRatio ||
+            ctx.msBackingStorePixelRatio ||
+            ctx.oBackingStorePixelRatio ||
+            ctx.backingStorePixelRatio || 1;
+
+  return dpr / bsr;
+})();
+
+function setHiDPICanvas(canvas, w, h, ratio) {
+  if (!ratio) { ratio = PIXEL_RATIO; }
+
+  canvas.width = w * ratio;
+  canvas.height = h * ratio;
+  canvas.style.width = w + "px";
+  canvas.style.height = h + "px";
+  canvas.getContext("2d").setTransform(ratio, 0, 0, ratio, 0, 0);
+  return canvas;
+}
+
 function renderTextLine(textLine) {
   const textHeight = 20;
 
   const canvas = document.getElementsByClassName("trainingTextCanvas")[0];
   const ctx = canvas.getContext("2d");
 
-  ctx.canvas.height = textHeight;
+  setHiDPICanvas(canvas, 1000, textHeight);
+
   ctx.textBaseline = "bottom";
   ctx.font = "bold " + textHeight + "px Courier New";
 
