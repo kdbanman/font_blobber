@@ -3,17 +3,41 @@
   <body>
 
     <div>
-      <textarea class="rawTrainingText" rows="8" cols="80">Paste the training text you would like in here!</textarea>
+      <div>
+        <textarea class="rawTrainingText" rows="8" cols="80">Paste the training text you would like in here!</textarea>
+      </div>
+
+      <div>
+        <button class="loadSampleTrainingText" onclick="loadSampleTrainingText()">Load Sample</button>
+      </div>
     </div>
 
-    <div>
-      <button class="loadSampleTrainingText" onclick="loadSampleTrainingText()">Load Sample</button>
-    </div>
-    
     <div>
       <canvas class="trainingTextCanvas" width="1000" height="100" style="border:1px solid #d3d3d3; image-rendering: optimizeSpeed; image-rendering: -moz-crisp-edges; image-rendering: -webkit-optimize-contrast; image-rendering: -o-crisp-edges; image-rendering: pixelated; -ms-interpolation-mode: nearest-neighbor;">
         Your browser does not support the canvas element.
       </canvas>
+    </div>
+
+    <div>
+      <div>
+        <button class="initializeModel" onclick="initializeModel()">Initialize Model</button>
+      </div>
+
+      <div>
+        <button class="trainModel" onclick="trainModel()">Train Model</button>
+      </div>
+
+      <div>
+        <button class="stopTraining" onclick="stopTraining()">Stop Training</button>
+      </div>
+
+      <div class="modelState">
+        Initialized
+      </div>
+    </div>
+
+    <div>
+      <button class="sampleModel" onclick="sampleModel()">Sample Model</button>
     </div>
 
     <script type="text/javascript" src="src/components/rawTrainingText.js"></script>
